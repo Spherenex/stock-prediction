@@ -101,3 +101,132 @@ class DataStorageService {
   // Export a singleton instance
   const dataStorage = new DataStorageService();
   export default dataStorage;
+
+// src/services/dataStorage.js
+
+// import { preprocessDataForLSTM } from '../utils/dataPreprocessing';
+// import { generateAndSaveData } from '../utils/sampleDataGenerator';
+
+// // Cache for processed data
+// let cachedData = null;
+
+// /**
+//  * Fetch stock and news data, process it and return the result
+//  * @param {Object} options - Options for data retrieval
+//  * @param {boolean} options.useCache - Whether to use cached data if available
+//  * @param {number} options.sequenceLength - LSTM sequence length
+//  * @returns {Promise<Object>} - Processed data
+//  */
+// export const getProcessedData = async (options = { useCache: true, sequenceLength: 10 }) => {
+//   // Return cached data if available and requested
+//   if (options.useCache && cachedData) {
+//     return cachedData;
+//   }
+  
+//   try {
+//     let stockResponse, newsResponse;
+    
+//     try {
+//       // Try to load data from files
+//       stockResponse = await fetch('/data/stock_data.csv');
+//       newsResponse = await fetch('/data/news_data.csv');
+      
+//       if (!stockResponse.ok || !newsResponse.ok) {
+//         throw new Error('Failed to load data files');
+//       }
+      
+//       stockResponse = await stockResponse.text();
+//       newsResponse = await newsResponse.text();
+//     } catch (err) {
+//       console.log('Using generated sample data instead');
+//       // Generate sample data if files aren't available
+//       const sampleData = await generateAndSaveData();
+//       stockResponse = sampleData.stockCSV;
+//       newsResponse = sampleData.newsCSV;
+//     }
+    
+//     // Process the data using our preprocessing utility
+//     const processed = await preprocessDataForLSTM(
+//       stockResponse, 
+//       newsResponse, 
+//       options.sequenceLength
+//     );
+    
+//     // Cache the processed data
+//     cachedData = processed;
+    
+//     return processed;
+//   } catch (error) {
+//     console.error('Error fetching or processing data:', error);
+//     throw error;
+//   }
+// };
+
+// /**
+//  * Clear the data cache
+//  */
+// export const clearDataCache = () => {
+//   cachedData = null;
+// };
+
+// /**
+//  * Process uploaded CSV files
+//  * @param {File} stockFile - Stock data CSV file
+//  * @param {File} newsFile - News data CSV file
+//  * @param {number} sequenceLength - LSTM sequence length
+//  * @returns {Promise<Object>} - Processed data
+//  */
+// export const processUploadedFiles = async (stockFile, newsFile, sequenceLength = 10) => {
+//   try {
+//     // Read the uploaded files
+//     const stockData = await readFileAsText(stockFile);
+//     const newsData = await readFileAsText(newsFile);
+    
+//     // Process the data
+//     const processed = await preprocessDataForLSTM(stockData, newsData, sequenceLength);
+    
+//     // Update the cache
+//     cachedData = processed;
+    
+//     return processed;
+//   } catch (error) {
+//     console.error('Error processing uploaded files:', error);
+//     throw error;
+//   }
+// };
+
+// /**
+//  * Read a file as text
+//  * @param {File} file - File to read
+//  * @returns {Promise<string>} - File content
+//  */
+// const readFileAsText = (file) => {
+//   return new Promise((resolve, reject) => {
+//     const reader = new FileReader();
+//     reader.onload = (event) => resolve(event.target.result);
+//     reader.onerror = (error) => reject(error);
+//     reader.readAsText(file);
+//   });
+// };
+
+// /**
+//  * Generate sample data for visualization
+//  * @param {number} days - Number of days to generate
+//  * @returns {Promise<Object>} - Generated sample data
+//  */
+// export const generateSampleData = async (days = 365) => {
+//   try {
+//     const sampleData = await generateAndSaveData();
+//     return sampleData;
+//   } catch (error) {
+//     console.error('Error generating sample data:', error);
+//     throw error;
+//   }
+// };
+
+// export default {
+//   getProcessedData,
+//   clearDataCache,
+//   processUploadedFiles,
+//   generateSampleData
+// };

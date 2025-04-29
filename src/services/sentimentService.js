@@ -1,6 +1,6 @@
-// // src/services/sentimentService.js
+// // // src/services/sentimentService.js
 
-// // Simple sentiment analysis service
+// // // Simple sentiment analysis service
 // export class SentimentAnalysisService {
 //     constructor() {
 //       // Positive and negative word dictionaries with weights
@@ -301,3 +301,144 @@ class SentimentAnalysisService {
   // Export a singleton instance
   const sentimentService = new SentimentAnalysisService();
   export default sentimentService;
+
+// src/services/sentimentService.js
+
+// import { aggregateNewsSentimentByDate } from '../utils/dataPreprocessing';
+
+// /**
+//  * Calculate overall sentiment score from news data
+//  * @param {Array} newsData - Array of news articles with sentiment scores
+//  * @param {number} days - Number of recent days to consider (default: 30)
+//  * @returns {number} - Overall sentiment score (-1 to 1)
+//  */
+// export const calculateOverallSentiment = (newsData, days = 30) => {
+//   if (!newsData || newsData.length === 0) {
+//     return 0;
+//   }
+  
+//   // Sort news by date
+//   const sortedNews = [...newsData].sort((a, b) => {
+//     const dateA = a.date instanceof Date ? a.date : new Date(a.date);
+//     const dateB = b.date instanceof Date ? b.date : new Date(b.date);
+//     return dateA - dateB;
+//   });
+  
+//   // Get recent news
+//   const recentNews = sortedNews.slice(-days);
+  
+//   // Calculate weighted average of sentiment scores (more recent = higher weight)
+//   let totalSentiment = 0;
+//   let totalWeight = 0;
+  
+//   recentNews.forEach((article, index) => {
+//     const weight = index + 1; // More recent articles have higher index
+//     totalSentiment += article.sentiment * weight;
+//     totalWeight += weight;
+//   });
+  
+//   return totalWeight > 0 ? totalSentiment / totalWeight : 0;
+// };
+
+// /**
+//  * Get sentiment distribution from news data
+//  * @param {Array} newsData - Array of news articles with sentiment scores
+//  * @returns {Array} - Sentiment distribution data for visualization
+//  */
+// export const getSentimentDistribution = (newsData) => {
+//   if (!newsData || newsData.length === 0) {
+//     // Return default distribution if no data
+//     return [
+//       { label: 'Very Bearish', value: 0.1, color: '#ef4444' },
+//       { label: 'Bearish', value: 0.15, color: '#f97316' },
+//       { label: 'Slightly Bearish', value: 0.1, color: '#f59e0b' },
+//       { label: 'Neutral', value: 0.2, color: '#64748b' },
+//       { label: 'Slightly Bullish', value: 0.15, color: '#86efac' },
+//       { label: 'Bullish', value: 0.2, color: '#22c55e' },
+//       { label: 'Very Bullish', value: 0.1, color: '#10b981' }
+//     ];
+//   }
+  
+//   // Count articles in each sentiment category
+//   const categories = {
+//     'Very Bearish': { count: 0, color: '#ef4444' },
+//     'Bearish': { count: 0, color: '#f97316' },
+//     'Slightly Bearish': { count: 0, color: '#f59e0b' },
+//     'Neutral': { count: 0, color: '#64748b' },
+//     'Slightly Bullish': { count: 0, color: '#86efac' },
+//     'Bullish': { count: 0, color: '#22c55e' },
+//     'Very Bullish': { count: 0, color: '#10b981' }
+//   };
+  
+//   // Categorize each article
+//   newsData.forEach(article => {
+//     const sentiment = article.sentiment;
+    
+//     if (sentiment <= -0.5) {
+//       categories['Very Bearish'].count++;
+//     } else if (sentiment <= -0.2) {
+//       categories['Bearish'].count++;
+//     } else if (sentiment <= -0.1) {
+//       categories['Slightly Bearish'].count++;
+//     } else if (sentiment <= 0.1) {
+//       categories['Neutral'].count++;
+//     } else if (sentiment <= 0.2) {
+//       categories['Slightly Bullish'].count++;
+//     } else if (sentiment <= 0.5) {
+//       categories['Bullish'].count++;
+//     } else {
+//       categories['Very Bullish'].count++;
+//     }
+//   });
+  
+//   // Calculate percentages
+//   const total = newsData.length;
+//   const distribution = Object.entries(categories).map(([label, data]) => ({
+//     label,
+//     value: data.count / total,
+//     color: data.color
+//   }));
+  
+//   return distribution;
+// };
+
+// /**
+//  * Process news data and extract sentiment by date
+//  * @param {Array} newsData - Raw news data
+//  * @returns {Object} - Sentiment aggregated by date
+//  */
+// export const processSentimentByDate = (newsData) => {
+//   if (!newsData || newsData.length === 0) {
+//     return {};
+//   }
+  
+//   // Ensure dates are Date objects
+//   const processedNews = newsData.map(article => ({
+//     ...article,
+//     date: article.date instanceof Date ? article.date : new Date(article.date)
+//   }));
+  
+//   return aggregateNewsSentimentByDate(processedNews);
+// };
+
+// /**
+//  * Get sentiment text based on score
+//  * @param {number} score - Sentiment score (-1 to 1)
+//  * @returns {string} - Text description of sentiment
+//  */
+// export const getSentimentText = (score) => {
+//   if (score > 0.5) return 'Very Bullish';
+//   if (score > 0.2) return 'Bullish';
+//   if (score > 0.1) return 'Slightly Bullish';
+//   if (score > -0.1) return 'Neutral';
+//   if (score > -0.2) return 'Slightly Bearish';
+//   if (score > -0.5) return 'Bearish';
+//   return 'Very Bearish';
+// };
+
+// export default {
+//   calculateOverallSentiment,
+//   getSentimentDistribution,
+//   processSentimentByDate,
+//   getSentimentText
+// };

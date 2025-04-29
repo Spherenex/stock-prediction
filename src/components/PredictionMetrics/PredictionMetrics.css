@@ -1,76 +1,222 @@
+/* src/components/PredictionMetrics/PredictionMetrics.css */
+
 .prediction-metrics {
-    margin-bottom: 20px;
-  }
-  
-  .metrics-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  
-  .metric-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius-md);
+  padding: 20px;
+}
+
+.prediction-metrics-title {
+  color: #0f172a;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* LSTM Parameters Section */
+.lstm-parameters-section {
+  background-color: #f8fafc;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.lstm-parameters-title {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.parameters-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.parameter-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.parameter-label {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.parameter-value {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Model Performance Section */
+.model-performance-section {
+  margin-bottom: 20px;
+}
+
+.model-performance-title {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.metrics-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.metric-item {
+  background-color: white;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #3b82f6;
+}
+
+.metric-label {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 5px;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 5px;
+}
+
+.metric-description {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Price Trend Section */
+.price-trend-section {
+  background-color: #f8fafc;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.forecast-title {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.forecast-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.forecast-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.forecast-label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.forecast-value {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.forecast-value.positive {
+  color: #10b981;
+}
+
+.forecast-value.negative {
+  color: #ef4444;
+}
+
+/* Data Preprocessing Section */
+.data-preprocessing-section {
+  margin-bottom: 20px;
+}
+
+.data-preprocessing-title {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.preprocessing-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preprocessing-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 12px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.step-description {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .prediction-metrics {
     padding: 15px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: var(--transition-normal);
   }
   
-  .metric-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+  .prediction-metrics-title {
+    font-size: 1.2rem;
   }
   
-  .metric-title {
-    margin: 0 0 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gray-700);
+  .parameters-list {
+    grid-template-columns: 1fr;
   }
-  
-  .metric-value {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  
-  .metric-good {
-    color: var(--secondary-color);
-  }
-  
-  .metric-average {
-    color: var(--warning-color);
-  }
-  
-  .metric-poor {
-    color: var(--danger-color);
-  }
-  
-  .metric-description {
-    font-size: 0.75rem;
-    color: var(--gray-600);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .metric-tooltip {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: var(--gray-200);
-    color: var(--gray-700);
-    font-size: 0.75rem;
-    cursor: help;
-  }
-  
-  @media (max-width: 768px) {
-    .metrics-container {
-      grid-template-columns: 1fr;
-    }
-  }
+}

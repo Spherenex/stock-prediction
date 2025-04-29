@@ -1,0 +1,307 @@
+/* Animations for the Stock Market Prediction App */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Fade Out */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.3s ease-in-out;
+  }
+  
+  /* Slide In (from right) */
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+  
+  /* Slide In (from left) */
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slide-in-left {
+    animation: slideInLeft 0.3s ease-out;
+  }
+  
+  /* Slide In (from top) */
+  @keyframes slideInTop {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-in-top {
+    animation: slideInTop 0.3s ease-out;
+  }
+  
+  /* Slide In (from bottom) */
+  @keyframes slideInBottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-in-bottom {
+    animation: slideInBottom 0.3s ease-out;
+  }
+  
+  /* Pulse Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  /* Spinning Animation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Blink Animation */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .blink {
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  
+  /* Bounce Animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  .bounce {
+    animation: bounce 2s ease infinite;
+  }
+  
+  /* Float Animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Shake Animation */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  /* Grow Animation */
+  @keyframes grow {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .grow {
+    animation: grow 0.3s ease-out;
+  }
+  
+  /* Shrink Animation */
+  @keyframes shrink {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0);
+    }
+  }
+  
+  .shrink {
+    animation: shrink 0.3s ease-in;
+  }
+  
+  /* Stock Chart Line Drawing Animation */
+  @keyframes drawLine {
+    from {
+      stroke-dashoffset: 1000;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .draw-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 1.5s ease-in-out forwards;
+  }
+  
+  /* Sentiment Gauge Animation */
+  @keyframes fillGauge {
+    from {
+      stroke-dashoffset: 252;
+    }
+    to {
+      stroke-dashoffset: var(--gauge-offset, 126);
+    }
+  }
+  
+  .fill-gauge {
+    animation: fillGauge 1s ease-out forwards;
+  }
+  
+  /* Number Counter Animation */
+  @keyframes countUp {
+    from {
+      opacity: 0.3;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .count-up {
+    animation: countUp 0.5s ease-out forwards;
+  }
+  
+  /* Loading Skeleton Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .skeleton {
+    background: linear-gradient(90deg, 
+      var(--gray-200) 25%, 
+      var(--gray-100) 50%, 
+      var(--gray-200) 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  /* News Card Hover Animation */
+  .news-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Button Hover Animation */
+  .btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+  
+  .btn:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  
+  /* Prevent animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
