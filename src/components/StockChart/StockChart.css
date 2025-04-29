@@ -1,0 +1,117 @@
+.stock-chart {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  
+  .stock-chart__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .stock-chart__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .stock-chart__timeframe {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .timeframe-button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border: 1px solid var(--gray-300);
+    background-color: var(--white);
+    color: var(--gray-700);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-normal);
+  }
+  
+  .timeframe-button:hover {
+    background-color: var(--gray-100);
+  }
+  
+  .timeframe-button.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+  }
+  
+  .stock-chart__container {
+    height: 400px;
+    width: 100%;
+  }
+  
+  .stock-chart__legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+  }
+  
+  .legend-color {
+    width: 16px;
+    height: 8px;
+    border-radius: 2px;
+  }
+  
+  .legend-color--actual {
+    background-color: var(--primary-color);
+  }
+  
+  .legend-color--predicted {
+    background-color: var(--secondary-color);
+  }
+  
+  .chart-tooltip {
+    background-color: var(--white);
+    border-radius: var(--border-radius-sm);
+    padding: 10px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .tooltip-date {
+    margin: 0 0 5px;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .tooltip-value {
+    margin: 3px 0;
+    font-size: 0.875rem;
+  }
+  
+  .tooltip-actual {
+    color: var(--primary-color);
+  }
+  
+  .tooltip-predicted {
+    color: var(--secondary-color);
+  }
+  
+  @media (max-width: 768px) {
+    .stock-chart__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .stock-chart__container {
+      height: 300px;
+    }
+  }

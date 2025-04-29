@@ -1,0 +1,76 @@
+.prediction-metrics {
+    margin-bottom: 20px;
+  }
+  
+  .metrics-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .metric-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    padding: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition-normal);
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .metric-title {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-700);
+  }
+  
+  .metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .metric-good {
+    color: var(--secondary-color);
+  }
+  
+  .metric-average {
+    color: var(--warning-color);
+  }
+  
+  .metric-poor {
+    color: var(--danger-color);
+  }
+  
+  .metric-description {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .metric-tooltip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+    font-size: 0.75rem;
+    cursor: help;
+  }
+  
+  @media (max-width: 768px) {
+    .metrics-container {
+      grid-template-columns: 1fr;
+    }
+  }

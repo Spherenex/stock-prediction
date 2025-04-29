@@ -1,0 +1,30 @@
+.footer {
+    background-color: var(--gray-800);
+    color: var(--gray-300);
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .footer-copyright {
+    font-size: 0.875rem;
+  }
+  
+  .footer-disclaimer {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      padding: 15px 0;
+    }
+  }

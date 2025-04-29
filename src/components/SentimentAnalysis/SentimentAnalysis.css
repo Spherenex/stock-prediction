@@ -1,0 +1,208 @@
+.market-analysis-section {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 24px;
+  background-color: #ffffff;
+  color: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.market-analysis-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.lstm-parameters-section,
+.model-performance-section,
+.price-trend-section,
+.sentiment-impact-section {
+  margin-bottom: 30px;
+}
+
+.lstm-parameters-title,
+.model-performance-title,
+.price-trend-title,
+.sentiment-impact-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.parameters-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.parameter-item {
+  background-color: #f1f5f9;
+  padding: 10px 16px;
+  border-radius: 8px;
+  flex: 1 1 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.parameter-label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.parameter-value {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.metrics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.metric-item {
+  flex: 1 1 250px;
+  background-color: #f8fafc;
+  border-left: 4px solid #10b981;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.metric-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.metric-description {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.chart-container {
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.forecast-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 16px 0 8px;
+}
+
+.forecast-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.forecast-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.forecast-label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.forecast-value {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.forecast-value.positive {
+  color: #10b981;
+}
+
+.forecast-value.negative {
+  color: #ef4444;
+}
+
+.sentiment-chart-container {
+  margin-top: 12px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.sentiment-summary {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.sentiment-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f1f5f9;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.score-label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.score-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.score-value.positive {
+  color: #10b981;
+}
+
+.score-value.negative {
+  color: #ef4444;
+}
+
+.sentiment-text {
+  font-weight: 600;
+  color: #334155;
+}
+
+.sentiment-description {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #475569;
+}
+
+.bar {
+  transition: all 0.3s ease;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+.bar-label {
+  fill: #1e293b;
+  font-weight: bold;
+}
